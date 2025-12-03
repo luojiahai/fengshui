@@ -1,4 +1,8 @@
 {
+  "name": "fengshui",
+  "version": "0.0.1",
+  "description": "",
+  "packageManager": "pnpm@10.24.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,9 +13,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.0.3",
-    "nuxt": "^3.8.2",
-    "vue": "^3.3.8",
-    "vue-router": "^4.2.5"
+    "@nuxt/devtools": "^3.1.1",
+    "nuxt": "^4.2.1",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.3"
   }
 }
