@@ -159,7 +159,7 @@ const selectedItemsWithAdvice = computed(() => {
           orientation="horizontal"
           :ui="{
             fieldset: 'grid grid-cols-2 gap-1',
-            item: 'rounded-none',
+            item: 'rounded-none bg-elevated',
           }"
           v-model="state.selectedItems"
           value-key="id"
