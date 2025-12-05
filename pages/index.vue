@@ -118,8 +118,9 @@ const selectedItemsWithAdvice = computed(() =>
           color="primary"
           variant="card"
           orientation="horizontal"
+          indicator="start"
           :ui="{
-            fieldset: 'grid grid-cols-2 gap-1',
+            fieldset: 'grid grid-cols-1 sm:grid-cols-2 gap-1',
             item: 'bg-elevated',
           }"
           v-model="selectedItems"

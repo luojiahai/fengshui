@@ -2,5 +2,5 @@
 @import "@nuxt/ui";
 
 :root {
-  --ui-container: var(--container-2xl);
+  --ui-container: var(--container-3xl);
 }
