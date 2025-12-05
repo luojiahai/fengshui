@@ -54,9 +54,9 @@ const state = reactive<State>({
 </script>
 
 <template>
-  <UContainer class="max-w-2xl py-6">
-    <h1 class="text-2xl font-bold pb-6">{{ $t("title") }}</h1>
-    <UCard class="" variant="subtle">
+  <UContainer class="py-6">
+    <h1 class="text-2xl font-bold">{{ $t("title") }}</h1>
+    <UCard class="mt-4" variant="subtle">
       <UForm :state="state" class="space-y-4">
         <UFormField label="Input" name="input">
           <UInput
@@ -116,7 +116,7 @@ const state = reactive<State>({
         </UFormField>
       </UForm>
     </UCard>
-    <UCard variant="subtle">
+    <UCard class="mt-4" variant="subtle">
       <p>Input: {{ state.input }}</p>
       <p>InputMenu: {{ state.inputMenu }}</p>
       <p>InputNumber: {{ state.inputNumber }}</p>

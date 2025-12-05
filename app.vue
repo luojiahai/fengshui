@@ -33,23 +33,16 @@ const { locale, setLocale } = useI18n();
       </NuxtLayout>
     </UMain>
 
-    <USeparator />
+    <USeparator class="py-2" />
 
     <UFooter>
       <template #left>
         <p class="text-muted text-sm">
-          Copyright © {{ new Date().getFullYear() }} luojiahai
+          Copyright © {{ new Date().getFullYear() }}
+          <a href="https://luojiahai.com" target="_blank" class="underline"
+            >luojiahai</a
+          >
         </p>
-      </template>
-      <template #right>
-        <UButton
-          icon="i-simple-icons-github"
-          color="neutral"
-          variant="ghost"
-          to="https://github.com/luojiahai"
-          target="_blank"
-          aria-label="GitHub"
-        />
       </template>
     </UFooter>
   </UApp>
