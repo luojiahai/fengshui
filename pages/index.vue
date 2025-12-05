@@ -151,7 +151,7 @@ const selectedItemsWithAdvice = computed(() => {
           orientation="horizontal"
           :ui="{
             fieldset: 'grid grid-cols-2 gap-1 space-x-0',
-            item: 'first-of-type:rounded-l-none last-of-type:rounded-r-none',
+            item: 'first-of-type:rounded-none last-of-type:rounded-none',
           }"
           v-model="state.selectedItems"
           value-key="id"
