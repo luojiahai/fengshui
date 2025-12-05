@@ -33,6 +33,8 @@ const { locale, setLocale } = useI18n();
       </NuxtLayout>
     </UMain>
 
+    <USeparator />
+
     <UFooter>
       <template #left>
         <p class="text-muted text-sm">
