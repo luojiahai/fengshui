@@ -155,11 +155,11 @@ const selectedItemsWithAdvice = computed(() => {
         </h2>
         <UCheckboxGroup
           color="primary"
-          variant="table"
+          variant="card"
           orientation="horizontal"
           :ui="{
-            fieldset: 'grid grid-cols-2 gap-1 space-x-0',
-            item: 'first-of-type:rounded-none last-of-type:rounded-none',
+            fieldset: 'grid grid-cols-2 gap-1',
+            item: 'rounded-none',
           }"
           v-model="state.selectedItems"
           value-key="id"
