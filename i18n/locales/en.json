@@ -12,20 +12,18 @@
   "poorFengShui": "Poor Feng Shui (Layout Adjustment Recommended)",
   "badFengShui": "Bad Feng Shui (Major Adjustment or Remediation Needed)",
   "fengShuiCategories": {
-    "doorOrientationExteriorLayout": "Door Orientation & Exterior Layout",
-    "entryScene": "Entry Scene",
+    "door": "Door",
     "entryway": "Entryway",
-    "livingRoomLayout": "Living Room Layout",
-    "livingRoomShapeObstacles": "Living Room Shape & Obstacles",
-    "bedroomLayout": "Bedroom Layout",
+    "livingRoom": "Living Room",
+    "bedroom": "Bedroom",
     "study": "Study",
-    "kitchenDirectionStove": "Kitchen Direction & Stove",
-    "diningRoomDiningTable": "Dining Room & Dining Table",
-    "bathroomPosition": "Bathroom Position",
-    "overallLightingVentilation": "Overall Lighting & Ventilation"
+    "kitchen": "Kitchen",
+    "diningRoom": "Dining Room",
+    "bathroom": "Bathroom",
+    "overall": "Overall"
   },
   "fengShuiItems": {
-    "doorOrientationExteriorLayout": {
+    "door": {
       "doorSouth": {
         "label": "Door facing south (Phoenix position)",
         "advice": ""
@@ -49,9 +47,7 @@
       "doorElevator": {
         "label": "Door directly facing elevator",
         "advice": "Place round, large plants or screens at the door to cushion."
-      }
-    },
-    "entryScene": {
+      },
       "doorSeeRed": {
         "label": "Seeing red upon entry (festive decoration)",
         "advice": ""
@@ -103,7 +99,7 @@
         "advice": "Redesign the ceiling or use light colors to enhance space feeling."
       }
     },
-    "livingRoomLayout": {
+    "livingRoom": {
       "livingSofaWall": {
         "label": "Sofa backed against solid wall",
         "advice": ""
@@ -127,9 +123,7 @@
       "livingDirectLight": {
         "label": "Overhead light shining directly on head",
         "advice": "Relocate the light or use soft light shade."
-      }
-    },
-    "livingRoomShapeObstacles": {
+      },
       "livingSquareShape": {
         "label": "Living room has square shape",
         "advice": ""
@@ -147,7 +141,7 @@
         "advice": "Place tall plants or set up screen at sharp corner to exorcise evil qi."
       }
     },
-    "bedroomLayout": {
+    "bedroom": {
       "bedHeadWall": {
         "label": "Bed head against wall",
         "advice": ""
@@ -195,7 +189,7 @@
         "advice": "Move desk to avoid toilet wall."
       }
     },
-    "kitchenDirectionStove": {
+    "kitchen": {
       "kitchenEast": {
         "label": "Kitchen located east or southeast",
         "advice": ""
@@ -217,7 +211,7 @@
         "advice": "Add solid wall or cabinet to enhance stability and safety."
       }
     },
-    "diningRoomDiningTable": {
+    "diningRoom": {
       "diningRoundSquare": {
         "label": "Dining table is round or square",
         "advice": ""
@@ -239,7 +233,7 @@
         "advice": "Adjust table position or set up screen to resolve evil qi."
       }
     },
-    "bathroomPosition": {
+    "bathroom": {
       "toiletGoodPosition": {
         "label": "Toilet door not facing door/kitchen",
         "advice": ""
@@ -257,7 +251,7 @@
         "advice": "Change door or add partition to avoid water-fire collision."
       }
     },
-    "overallLightingVentilation": {
+    "overall": {
       "houseBright": {
         "label": "Good lighting",
         "advice": ""

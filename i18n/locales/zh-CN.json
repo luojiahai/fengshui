@@ -12,20 +12,18 @@
   "poorFengShui": "较差风水（建议调整布局）",
   "badFengShui": "不利风水（需大幅调整或化解）",
   "fengShuiCategories": {
-    "doorOrientationExteriorLayout": "大门朝向与外部格局",
-    "entryScene": "大门入门景象",
+    "door": "大门",
     "entryway": "玄关",
-    "livingRoomLayout": "客厅布局",
-    "livingRoomShapeObstacles": "客厅形状与障碍",
-    "bedroomLayout": "卧室布局",
+    "livingRoom": "客厅",
+    "bedroom": "卧室",
     "study": "书房",
-    "kitchenDirectionStove": "厨房方向与炉灶",
-    "diningRoomDiningTable": "餐厅与餐桌",
-    "bathroomPosition": "卫生间位置",
-    "overallLightingVentilation": "整体采光与通风"
+    "kitchen": "厨房",
+    "diningRoom": "餐厅",
+    "bathroom": "卫生间",
+    "overall": "整体"
   },
   "fengShuiItems": {
-    "doorOrientationExteriorLayout": {
+    "door": {
       "doorSouth": {
         "label": "大门朝南（朱雀位）",
         "advice": ""
@@ -49,9 +47,7 @@
       "doorElevator": {
         "label": "大门直对电梯",
         "advice": "在门口摆放圆润大型绿植或屏风缓冲。"
-      }
-    },
-    "entryScene": {
+      },
       "doorSeeRed": {
         "label": "入门见红（喜庆布置）",
         "advice": ""
@@ -103,7 +99,7 @@
         "advice": "重新设计天花或用浅色装饰提升空间感。"
       }
     },
-    "livingRoomLayout": {
+    "livingRoom": {
       "livingSofaWall": {
         "label": "沙发背靠实墙",
         "advice": ""
@@ -127,9 +123,7 @@
       "livingDirectLight": {
         "label": "顶灯直照头部",
         "advice": "更换灯具位置或使用柔光灯罩。"
-      }
-    },
-    "livingRoomShapeObstacles": {
+      },
       "livingSquareShape": {
         "label": "客厅方正",
         "advice": ""
@@ -147,7 +141,7 @@
         "advice": "在尖角摆放高大植物或设置屏风化解煞气。"
       }
     },
-    "bedroomLayout": {
+    "bedroom": {
       "bedHeadWall": {
         "label": "床头靠墙",
         "advice": ""
@@ -195,7 +189,7 @@
         "advice": "移动桌位避开厕所墙面。"
       }
     },
-    "kitchenDirectionStove": {
+    "kitchen": {
       "kitchenEast": {
         "label": "厨房位于东或东南",
         "advice": ""
@@ -217,7 +211,7 @@
         "advice": "加设实墙或柜体增强稳定和安全性。"
       }
     },
-    "diningRoomDiningTable": {
+    "diningRoom": {
       "diningRoundSquare": {
         "label": "餐桌圆形或方形",
         "advice": ""
@@ -239,7 +233,7 @@
         "advice": "调整餐桌位置或设置隔屏化解冲煞。"
       }
     },
-    "bathroomPosition": {
+    "bathroom": {
       "toiletGoodPosition": {
         "label": "卫生间门不对大门/厨房",
         "advice": ""
@@ -257,7 +251,7 @@
         "advice": "改门或设置隔板避免水火相冲。"
       }
     },
-    "overallLightingVentilation": {
+    "overall": {
       "houseBright": {
         "label": "採光良好",
         "advice": ""
