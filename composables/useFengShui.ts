@@ -6,7 +6,6 @@ type FengShuiOptionId = string;
 
 export interface FengShuiState {
   selectedOptions: Map<FengShuiItemId, FengShuiOptionId[]>;
-  unselectedOptions: Map<FengShuiItemId, FengShuiOptionId[]>;
 }
 
 export function useFengShui() {
@@ -16,25 +15,18 @@ export function useFengShui() {
     selectedOptions: new Map<FengShuiItemId, FengShuiOptionId[]>(
       fengShuiItems.map((item) => [item.id, []])
     ),
-    unselectedOptions: new Map<FengShuiItemId, FengShuiOptionId[]>(
-      fengShuiItems.map((item) => [
-        item.id,
-        item.options.map((option) => option.id),
-      ])
-    ),
   }));
 
-  const score = computed(() => {
-    const score = calculateScore(
+  const score = computed(() =>
+    calculateScore(
       Array.from(state.value.selectedOptions.values()).flatMap((optionIds) =>
         optionIds.map((id) => optionsMap.get(id)!)
       )
-    );
-    return parseFloat(score.toPrecision(5));
-  });
+    )
+  );
 
   const rating = computed<FengShuiRating>(() => {
-    const ratings: FengShuiRating[] = [
+    const ratings: Array<{ threshold: number } & FengShuiRating> = [
       { threshold: 90, label: t("excellentFengShui"), color: "emerald" },
       { threshold: 70, label: t("goodFengShui"), color: "emerald" },
       { threshold: 50, label: t("fairFengShui"), color: "yellow" },
@@ -42,7 +34,7 @@ export function useFengShui() {
     ];
 
     return (
-      ratings.find((rating) => score.value >= rating.threshold!) || {
+      ratings.find((rating) => score.value >= rating.threshold) || {
         label: t("badFengShui"),
         color: "red",
       }
