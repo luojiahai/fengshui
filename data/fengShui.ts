@@ -219,52 +219,40 @@ export const fengShuiItems: FengShuiItem[] = [
       },
     ],
   },
-] as const;
+];
 
-export const optionsMap: Map<string, FengShuiOption> = new Map();
-fengShuiItems.forEach((item) => {
-  item.options.forEach((option) => {
-    optionsMap.set(option.id, option);
-  });
-});
+export const optionsMap = new Map<string, FengShuiOption>(
+  fengShuiItems.flatMap((item) =>
+    item.options.map((option) => [option.id, option])
+  )
+);
 
-// Calculate theoretical min and max scores based on available options
-let minTotalScore = 0;
-let maxTotalScore = 0;
+const allOptions = fengShuiItems.flatMap((item) => item.options);
 
-fengShuiItems.forEach((item) => {
-  item.options.forEach((option) => {
-    if (option.score < 0) {
-      minTotalScore += option.score;
-    } else if (option.score > 0) {
-      maxTotalScore += option.score;
-    }
-  });
-});
+const minTotalScore = allOptions
+  .filter((option) => option.score < 0)
+  .reduce((sum, option) => sum + option.score, 0);
+
+const maxTotalScore = allOptions
+  .filter((option) => option.score > 0)
+  .reduce((sum, option) => sum + option.score, 0);
 
 export const calculateScore = (selectedOptions: FengShuiOption[]): number => {
   if (selectedOptions.length === 0) return 50; // Neutral score when nothing selected
 
   // Calculate raw score
-  let rawScore = 0;
-  selectedOptions.forEach((option) => {
-    rawScore += option.score;
-  });
+  const rawScore = selectedOptions.reduce(
+    (sum, option) => sum + option.score,
+    0
+  );
 
   // Linear normalization: map [minTotalScore, maxTotalScore] to [0, 100]
-  // Formula: score = ((rawScore - min) / (max - min)) * 100
-  let normalizedScore: number;
+  // Positive scores: map [0, maxTotalScore] to [50, 100]
+  // Negative scores: map [minTotalScore, 0] to [0, 50]
+  const normalizedScore =
+    rawScore >= 0
+      ? 50 + (rawScore / maxTotalScore) * 50
+      : 50 + (rawScore / Math.abs(minTotalScore)) * 50;
 
-  if (rawScore >= 0) {
-    // Positive scores: map [0, maxTotalScore] to [50, 100]
-    normalizedScore = 50 + (rawScore / maxTotalScore) * 50;
-  } else {
-    // Negative scores: map [minTotalScore, 0] to [0, 50]
-    normalizedScore = 50 + (rawScore / Math.abs(minTotalScore)) * 50;
-  }
-
-  // Clamp to [0, 100] range
-  normalizedScore = Math.max(0, Math.min(100, normalizedScore));
-
-  return parseFloat(normalizedScore.toFixed(2));
+  return parseFloat(Math.max(0, Math.min(100, normalizedScore)).toFixed(2));
 };

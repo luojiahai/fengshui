@@ -11,7 +11,7 @@ const { locale, setLocale } = useI18n();
       Is the <span class="text-primary-400">Feng Shui</span> good?
     </h1>
     <p class="text-gray-400 mb-3">{{ $t("disclaimer") }}</p>
-    <div class="flex items-center" orientation="horizontal">
+    <div class="flex items-center">
       <UButton
         :color="locale === 'zh-CN' ? 'primary' : 'neutral'"
         variant="outline"
