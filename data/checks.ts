@@ -210,7 +210,7 @@ export const stepChecks: Record<StepKey, Check[]> = {
 
 export const stepCheckIds: Record<StepKey, string[]> = Object.fromEntries(
   Object.entries(stepChecks).map(([key, checks]) => [key, checks.map(c => c.id)])
-) as Record<StepKey, string[]>
+) as Record<StepKey, string[]>  // Object.fromEntries loses key-type narrowing; safe because stepChecks is keyed by StepKey
 
 export const sectionMinMax: Record<StepKey, { min: number; max: number }> = {
   external:   { min: -22, max: 15 },

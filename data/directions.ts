@@ -2,6 +2,7 @@
 import type { DirectionModifier } from '~/types/fengshui'
 
 export const directionModifiers: DirectionModifier[] = [
+  // Intercardinal directions (NE, SE, SW, NW) have no modifier (scoreMultiplier = 1.0 by default).
   // South-facing: open space / water in front (celestial guardians) more auspicious
   { checkId: 'ext-celestial', direction: 'S', scoreMultiplier: 1.3 },
   // North-facing: mountain support behind more auspicious

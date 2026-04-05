@@ -42,7 +42,7 @@ export type TranslatedCheckOption = {
 export type TranslatedCheck = {
   id: string
   question: string
-  info: string
+  info?: string        // optional — matches Check.info; translateChecks() passes undefined when absent
   multiSelect: boolean
   options: TranslatedCheckOption[]
 }
