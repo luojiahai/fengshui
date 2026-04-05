@@ -2,8 +2,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   routeRules: {
-    // prerender index route by default
-    "/": { prerender: true },
+    '/':       { prerender: true },
+    '/report': { prerender: true },
   },
   modules: ["@nuxt/ui", "@nuxtjs/i18n"],
   css: ["~/assets/css/main.css"],
@@ -15,4 +15,24 @@ export default defineNuxtConfig({
     ],
     detectBrowserLanguage: false,
   },
+  vite: {
+    plugins: [
+    {
+        name: "vite-plugin-ignore-sourcemap-warnings",
+        apply: "build",
+        configResolved(config) {
+          config.build.rollupOptions.onwarn = (warning, warn) => {
+            if (
+              warning.code === "SOURCEMAP_BROKEN" &&
+              warning.plugin === "@tailwindcss/vite:generate:build"
+            ) {
+              return;
+            }
+
+            warn(warning);
+          };
+        },
+      },
+    ],
+  }
 });

@@ -1,171 +1,208 @@
 {
   "idlegram": "闲置程序",
-  "title": "风水测算器",
-  "description": "这风水好不好",
-  "disclaimer": "这只是为了好玩，请不要过分认真对待测算结果！请咨询专业风水师以获得准确的风水建议。",
-  "score": "分数",
-  "excellentFengShui": "极佳风水（旺宅）",
-  "goodFengShui": "良好风水（稳中有升）",
-  "fairFengShui": "一般风水（需改进）",
-  "poorFengShui": "较差风水（建议调整布局）",
-  "badFengShui": "不利风水（需大幅调整或化解）",
-  "externalEnvironment": "外部环境",
-  "internalLayout": "内部格局",
-  "fengShuiItems": {
-    "1": {
-      "title": "四灵山诀",
-      "info": "",
+  "title": "风水勘察仪",
+  "description": "逐室勘察房屋风水，获取评分与化解建议。",
+  "disclaimer": "仅供教育与娱乐参考，如需专业意见请咨询风水师。",
+  "steps": {
+    "direction": "朝向",
+    "external": "外部环境",
+    "entrance": "大门",
+    "livingRoom": "客厅",
+    "kitchen": "厨房",
+    "bedroom": "卧室",
+    "bathroom": "卫生间",
+    "report": "报告"
+  },
+  "directions": {
+    "N": "北", "NE": "东北", "E": "东", "SE": "东南",
+    "S": "南", "SW": "西南", "W": "西", "NW": "西北"
+  },
+  "wizard": {
+    "back": "上一步",
+    "next": "下一步",
+    "viewReport": "查看报告",
+    "stepOf": "第 {current} / {total} 步",
+    "directionPrompt": "大门朝向哪个方向？",
+    "directionHint": "站在室内面向大门向外看，使用指南针或地图应用确认方向。",
+    "addBedroom": "添加卧室",
+    "addBathroom": "添加卫生间",
+    "bedroom": "卧室",
+    "masterBedroom": "主卧",
+    "bedroomN": "卧室 {n}",
+    "bathroomN": "卫生间 {n}"
+  },
+  "report": {
+    "title": "风水报告",
+    "overallScore": "综合评分",
+    "sectionBreakdown": "分项评分",
+    "issuesFound": "发现问题",
+    "noIssues": "未发现明显问题，风水良好！",
+    "remedy": "化解建议",
+    "shareReport": "分享报告",
+    "startOver": "重新测算",
+    "linkCopied": "链接已复制！",
+    "shareFailed": "分享失败，请重试",
+    "readOnly": "这是一份共享报告（只读）。",
+    "invalidLink": "链接无效或已失效。",
+    "weight": "权重"
+  },
+  "ratings": {
+    "excellent": "风水极佳",
+    "good": "风水良好",
+    "fair": "风水一般",
+    "poor": "风水欠佳",
+    "bad": "风水不利"
+  },
+  "sectionLabels": {
+    "external": "外部环境",
+    "entrance": "大门",
+    "livingRoom": "客厅",
+    "kitchen": "厨房",
+    "bedroom": "卧室",
+    "bathroom": "卫生间"
+  },
+  "checks": {
+    "extCelestial": {
+      "question": "周边具备哪些四灵山诀？",
+      "info": "传统风水认为理想的居所四面应有护卫：左青龙、右白虎、前朱雀、后玄武。",
       "options": {
-        "1": {
-          "label": "左青龙",
-          "description": "房屋左侧建筑略高"
-        },
-        "2": {
-          "label": "右白虎",
-          "description": "房屋右侧建筑略低"
-        },
-        "3": {
-          "label": "前朱雀",
-          "description": "房屋前方开阔、有水（如公园、河流）"
-        },
-        "4": {
-          "label": "后玄武",
-          "description": "房屋后方有靠山（如山体、高大建筑）"
-        }
+        "greenDragon":   { "label": "左青龙 — 房屋左侧建筑略高" },
+        "whiteTiger":    { "label": "右白虎 — 房屋右侧建筑略低" },
+        "redPhoenix":    { "label": "前朱雀 — 房屋前方开阔，或有水景（公园、河流）" },
+        "blackTortoise": { "label": "后玄武 — 房屋背后有山体或高大建筑" }
       }
     },
-    "2": {
-      "title": "形煞",
-      "info": "房屋周围的不合理的自然景观。",
+    "extSha": {
+      "question": "周边是否存在形煞？",
+      "info": "煞气是指由尖锐、直冲或压迫性的环境特征引起的不良能量。",
       "options": {
-        "1": {
-          "label": "路冲",
-          "description": "大门或主要窗户正对直路、楼梯、走廊。"
-        },
-        "2": {
-          "label": "角煞",
-          "description": "被其他建筑的尖角、墙角正对。"
-        },
-        "3": {
-          "label": "反弓煞",
-          "description": "道路或河流呈弓形背对房屋，如同战弓射箭。"
-        },
-        "4": {
-          "label": "天斩煞",
-          "description": "两栋高楼之间的狭窄缝隙正对房屋。"
-        },
-        "5": {
-          "label": "穿心煞",
-          "description": "地下通道、地铁、车道从建筑下方穿过。"
-        },
-        "6": {
-          "label": "光煞",
-          "description": "被玻璃幕墙、强光长期照射。"
-        }
+        "roadRush":      { "label": "路冲 — 道路或走廊直冲大门",           "remedy": "在门前设置照壁、密植灌木或在门楣悬挂八卦镜以化解冲煞。" },
+        "sharpCorner":   { "label": "角煞 — 邻近建筑的尖角正对房屋",       "remedy": "在尖角与房屋之间种植高大植物或悬挂风铃来散煞。" },
+        "reverseBow":    { "label": "反弓煞 — 道路或河流呈弓形背对房屋",   "remedy": "在弓形凹侧设置水景，将气引回房屋。" },
+        "heavensBlade":  { "label": "天斩煞 — 两栋高楼之间的缝隙正对房屋", "remedy": "避免开设朝向缝隙的窗户，可用水晶或厚窗帘化解刀形气场。" },
+        "piercingHeart": { "label": "穿心煞 — 地下通道或车道从建筑下方穿过","remedy": "在低层放置厚重的接地物件，保持低楼层灯光明亮、人气旺盛。" },
+        "lightSha":      { "label": "光煞 — 玻璃幕墙或强反光长期照射房屋", "remedy": "安装隔热膜，使用厚窗帘及茂密植物作为缓冲。" }
       }
     },
-    "3": {
-      "title": "周边",
-      "info": "",
+    "extSurroundings": {
+      "question": "周边有哪些值得关注的建筑或设施？",
       "options": {
-        "1": {
-          "label": "阴",
-          "description": "医院、垃圾场、变电站、高压塔、寺庙。"
-        },
-        "2": {
-          "label": "阳",
-          "description": "公园、绿地、河流、学校、图书馆。"
-        }
+        "yin":  { "label": "阴性设施 — 附近有医院、殡仪馆、垃圾站、变电站或寺庙", "remedy": "在朝向阴性建筑的窗户附近放置强阳性元素：明亮灯光、流动水景或生机盎然的绿植。" },
+        "yang": { "label": "阳性设施 — 附近有公园、学校、图书馆或清洁河流" }
       }
     },
-    "4": {
-      "title": "整体",
-      "info": "",
+    "entDoorFaces": {
+      "question": "大门打开后正对什么？",
+      "info": "大门是住宅纳气之口，其正对之物直接影响进入的气场。",
       "options": {
-        "1": {
-          "label": "户型方正",
-          "description": ""
-        },
-        "2": {
-          "label": "光线充足",
-          "description": ""
-        },
-        "3": {
-          "label": "空气流通",
-          "description": ""
-        },
-        "4": {
-          "label": "干净整洁",
-          "description": ""
-        }
+        "elevator": { "label": "电梯或楼梯直对大门",           "remedy": "在大门与电梯之间摆放植物或屏风，减缓急速进入的气流。" },
+        "bathroom": { "label": "卫生间门直对大门",             "remedy": "卫生间门随时保持关闭，在两扇门之间悬挂水晶或小屏风。" },
+        "kitchen":  { "label": "厨房（灶台或电器）正对大门",   "remedy": "厨房门随时保持关闭，在入口与厨房之间放置隔断或高大植物。" },
+        "balcony":  { "label": "阳台门或窗户正对大门直穿而过", "remedy": "在穿堂路线上摆放家具或隔断，减缓气流直穿而过。" }
       }
     },
-    "5": {
-      "title": "大门",
-      "info": "",
+    "entLight": {
+      "question": "入口区域的自然采光如何？",
       "options": {
-        "1": {
-          "label": "不正对电梯、楼梯",
-          "description": ""
-        },
-        "2": {
-          "label": "不正对厕所门、厨房门、阳台门",
-          "description": ""
-        }
+        "good": { "label": "明亮 — 自然光充足，入口敞亮" },
+        "poor": { "label": "昏暗 — 光线不足，入口幽暗封闭", "remedy": "安装明亮顶灯，并放置镜子以反射光线。保持入口整洁。" }
       }
     },
-    "6": {
-      "title": "客厅",
-      "info": "",
+    "entClutter": {
+      "question": "入口区域的整洁程度如何？",
       "options": {
-        "1": {
-          "label": "位于房屋前半部",
-          "description": ""
-        },
-        "2": {
-          "label": "沙发背后有靠",
-          "description": ""
-        }
+        "clean":     { "label": "整洁有序 — 入口干净，通行无阻" },
+        "cluttered": { "label": "杂物堆积 — 鞋子、包袋或杂物堵塞入口", "remedy": "安装鞋柜或收纳柜。入口畅通，气才能顺畅进入。" }
       }
     },
-    "7": {
-      "title": "厨房",
-      "info": "",
+    "lrPosition": {
+      "question": "客厅位于整套房屋的哪个位置？",
+      "info": "风水上客厅应靠近入口，使气在进入私密房间前有聚集之处。",
       "options": {
-        "1": {
-          "label": "灶台与水槽不相邻",
-          "description": ""
-        },
-        "2": {
-          "label": "灶台背后有靠",
-          "description": ""
-        },
-        "3": {
-          "label": "与厕所不相邻",
-          "description": ""
-        }
+        "front": { "label": "前半部 — 客厅靠近大门" },
+        "back":  { "label": "后半部 — 客厅在卧室之后", "remedy": "通过家具布置和灯光，在入口附近打造一个清晰的迎客区作为辅助聚气点。" }
       }
     },
-    "8": {
-      "title": "卧室",
-      "info": "",
+    "lrSofa": {
+      "question": "主沙发背后是什么？",
+      "info": "沙发背实墙（有靠）寓意稳固有依，居住者感到安全踏实。",
       "options": {
-        "1": {
-          "label": "床南北朝向",
-          "description": ""
-        },
-        "2": {
-          "label": "床头靠实墙",
-          "description": ""
-        },
-        "3": {
-          "label": "床不对门",
-          "description": ""
-        },
-        "4": {
-          "label": "床不对镜子",
-          "description": ""
-        }
+        "solidWall": { "label": "实墙 — 沙发背靠实墙" },
+        "window":    { "label": "窗户 — 沙发背对窗户",           "remedy": "在沙发后方放置条案或高大植物，作为象征性的靠山。" },
+        "openSpace": { "label": "过道或开放空间 — 沙发后方无遮挡", "remedy": "将沙发移至靠墙位置；若无法移动，则在后方放置高书架或屏风。" }
+      }
+    },
+    "lrLight": {
+      "question": "客厅的自然采光与通风如何？",
+      "options": {
+        "good": { "label": "良好 — 光线明亮，空气流通" },
+        "poor": { "label": "欠佳 — 昏暗、闷热，主要依赖人工照明", "remedy": "尽量保持窗户清洁并定期开窗。增设全光谱灯具和空气净化植物。" }
+      }
+    },
+    "kitStoveSink": {
+      "question": "灶台与水槽是否紧邻或相对？",
+      "info": "灶台属火，水槽属水，水火相克会产生不和谐。",
+      "options": {
+        "separate": { "label": "分开 — 灶台与水槽不相邻，也不正对" },
+        "adjacent": { "label": "紧邻 — 灶台与水槽紧挨着或正对着", "remedy": "在两者之间放置木质元素：砧板、绿植或木色隔板，以木调和水火。" }
+      }
+    },
+    "kitStoveBack": {
+      "question": "灶台背后是什么？",
+      "options": {
+        "wall":   { "label": "实墙 — 灶台背靠实墙" },
+        "window": { "label": "窗户或开放空间在灶台后方", "remedy": "安装实心防溅板（瓷砖或石材），并可在灶台后方挂小镜子，象征财富翻倍。" }
+      }
+    },
+    "kitBathroom": {
+      "question": "厨房与卫生间是否相邻或共用一面墙？",
+      "options": {
+        "separate": { "label": "不相邻 — 厨房与卫生间之间至少隔一个房间或走廊" },
+        "adjacent": { "label": "相邻 — 厨房与卫生间共用一面墙或紧挨着", "remedy": "两处门随时保持关闭。在卫生间角落放置海盐碗以吸收负能量。" }
+      }
+    },
+    "bedDirection": {
+      "question": "床的朝向（头部到脚部）是哪个方向？",
+      "info": "南北方向与地球磁场平行，许多传统认为这有助于改善睡眠质量。",
+      "options": {
+        "northSouth": { "label": "南北向 — 床头朝南或朝北" },
+        "eastWest":   { "label": "东西向 — 床头朝东或朝西", "remedy": "在房间布局允许的情况下，将床调整为南北朝向。" }
+      }
+    },
+    "bedHeadwall": {
+      "question": "床头靠的是什么？",
+      "options": {
+        "solidWall": { "label": "实墙 — 床头板紧靠实墙" },
+        "window":    { "label": "窗户或门 — 床头靠近窗户或门旁", "remedy": "将床移至靠实墙的位置。若无法移动，在床头安装厚重遮光窗帘。" }
+      }
+    },
+    "bedDoor": {
+      "question": "床与卧室门是否正对？",
+      "options": {
+        "notFacing": { "label": "不正对 — 躺在床上看不到门" },
+        "facing":    { "label": "正对 — 躺在床上直视卧室门", "remedy": "调整床位使其偏离门的正对方向；若无法移动，在床脚放置床尾凳或屏风。" }
+      }
+    },
+    "bedMirror": {
+      "question": "卧室内是否有镜子正对床铺？",
+      "options": {
+        "notFacing": { "label": "没有镜子正对床" },
+        "facing":    { "label": "有镜子正对床，躺下可看到自己", "remedy": "夜间用布帘遮盖镜子，或将镜子移至躺下时视线看不到的墙面。" }
+      }
+    },
+    "bathCenter": {
+      "question": "卫生间位于整套房屋平面图的哪个位置？",
+      "info": "位于房屋中央的卫生间被认为是不吉的，会从中心泄漏整个住宅的气场。",
+      "options": {
+        "notCenter": { "label": "靠外墙 — 卫生间沿外墙而设" },
+        "center":    { "label": "位于中央 — 卫生间处于户型平面图的中心位置", "remedy": "随时保持门关闭，确保灯光明亮、通风良好，并在卫生间内放置水晶球以提升气场。" }
+      }
+    },
+    "bathDoor": {
+      "question": "卫生间门是否面向大门？",
+      "options": {
+        "notFacing": { "label": "不正对 — 从大门看不到卫生间门" },
+        "facing":    { "label": "正对 — 卫生间门朝向或正对大门", "remedy": "保持卫生间门常闭。在两门之间悬挂风铃或水晶以引导和转化气流。" }
       }
     }
   }
