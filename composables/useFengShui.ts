@@ -8,7 +8,7 @@ import type {
 } from '~/types/fengshui'
 
 // Section weights (must sum to 1)
-const SECTION_WEIGHTS: Record<StepKey, number> = {
+export const SECTION_WEIGHTS: Record<StepKey, number> = {
   external:   0.35,
   entrance:   0.15,
   livingRoom: 0.15,

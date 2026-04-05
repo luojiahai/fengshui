@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { calculateSectionScore, calculateOverallScore, getIssues, getRating } from '~/composables/useFengShui'
+import { calculateSectionScore, calculateOverallScore, getIssues, getRating, SECTION_WEIGHTS } from '~/composables/useFengShui'
 import { directionModifiers } from '~/data/directions'
 import type { StepKey, Report } from '~/types/fengshui'
 
@@ -7,11 +7,6 @@ const { sharedState } = useReport()
 const { t } = useI18n()
 
 useSeoMeta({ title: () => t('report.title') })
-
-const SECTION_WEIGHTS: Record<StepKey, number> = {
-  external: 0.35, entrance: 0.15, livingRoom: 0.15,
-  kitchen: 0.15, bedroom: 0.15, bathroom: 0.05,
-}
 
 const report = computed<Report | null>(() => {
   const state = sharedState.value
@@ -68,8 +63,8 @@ const report = computed<Report | null>(() => {
   <UContainer class="py-6 max-w-xl">
     <div v-if="!sharedState" class="text-center py-12">
       <UIcon name="i-lucide-link-2-off" class="size-12 text-muted mx-auto mb-3" />
-      <p class="text-muted">Invalid or missing report link.</p>
-      <UButton class="mt-4" to="/">Start a new inspection</UButton>
+      <p class="text-muted">{{ $t('report.invalidLink') }}</p>
+      <UButton class="mt-4" to="/">{{ $t('report.startOver') }}</UButton>
     </div>
 
     <div v-else-if="report">
@@ -85,6 +80,11 @@ const report = computed<Report | null>(() => {
       <UButton class="mt-4" variant="outline" to="/">
         {{ $t('report.startOver') }}
       </UButton>
+    </div>
+
+    <div v-else class="text-center py-12">
+      <UIcon name="i-lucide-loader" class="size-12 text-muted mx-auto mb-3" />
+      <p class="text-muted">{{ $t('report.invalidLink') }}</p>
     </div>
   </UContainer>
 </template>

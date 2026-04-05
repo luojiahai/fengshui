@@ -43,6 +43,7 @@
     "linkCopied": "Link copied to clipboard!",
     "shareFailed": "Failed to copy link",
     "readOnly": "This is a shared report (read-only).",
+    "invalidLink": "Invalid or missing report link.",
     "weight": "weight"
   },
   "ratings": {
