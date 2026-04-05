@@ -18,10 +18,13 @@ export function decodeState(encoded: string): WizardState | null {
     const json = new TextDecoder().decode(bytes)
     const parsed = JSON.parse(json)
     if (
+      parsed === null ||
       typeof parsed !== 'object' ||
       !('facingDirection' in parsed) ||
       !('answers' in parsed) ||
       !('rooms' in parsed) ||
+      parsed.rooms === null ||
+      typeof parsed.rooms !== 'object' ||
       !('bedroom' in parsed.rooms) ||
       !('bathroom' in parsed.rooms)
     ) {
@@ -46,8 +49,9 @@ export function useReport() {
   })
 
   async function shareReport(state: WizardState) {
+    if (!import.meta.client) return false
     const encoded = encodeState(state)
-    const url = `${window.location.origin}/report?d=${encoded}`
+    const url = `${window.location.origin}/report?d=${encodeURIComponent(encoded)}`
     try {
       await navigator.clipboard.writeText(url)
       return true
@@ -56,5 +60,5 @@ export function useReport() {
     }
   }
 
-  return { sharedState, shareReport, encodeState, decodeState }
+  return { sharedState, shareReport }
 }

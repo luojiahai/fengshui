@@ -41,4 +41,35 @@ describe('encodeState / decodeState', () => {
     const bad = btoa(JSON.stringify({ wrong: 'shape' }))
     expect(decodeState(bad)).toBeNull()
   })
+
+  it('round-trips a state with Unicode characters (Chinese room labels)', () => {
+    const unicodeState: WizardState = {
+      ...sampleState,
+      rooms: {
+        bedroom: [
+          { roomId: 'bedroom-1', label: '主卧室', answers: {} },
+        ],
+        bathroom: [
+          { roomId: 'bathroom-1', label: '卫生间', answers: {} },
+        ],
+      },
+    }
+    const decoded = decodeState(encodeState(unicodeState))
+    expect(decoded).toEqual(unicodeState)
+  })
+
+  it('survives a URL query-string round-trip (encodeURIComponent + decodeURIComponent)', () => {
+    const encoded = encodeState(sampleState)
+    // Simulate what happens when shareReport puts the value in a URL
+    // and the router/browser decodes it back before passing to decodeState
+    const urlParam = encodeURIComponent(encoded)
+    const decodedParam = decodeURIComponent(urlParam)
+    expect(decodeState(decodedParam)).toEqual(sampleState)
+  })
+
+  it('returns null for valid JSON null', () => {
+    // typeof null === 'object' — our guard must handle this
+    const bad = btoa(JSON.stringify(null))
+    expect(decodeState(bad)).toBeNull()
+  })
 })
