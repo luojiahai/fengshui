@@ -100,7 +100,7 @@ export function translateChecks(checks: Check[], t: (key: string) => string): Tr
   }))
 }
 
-function getRating(score: number, t: (key: string) => string): Rating {
+export function getRating(score: number, t: (key: string) => string): Rating {
   if (score >= 90) return { label: t('ratings.excellent'), color: 'emerald' }
   if (score >= 70) return { label: t('ratings.good'),      color: 'emerald' }
   if (score >= 50) return { label: t('ratings.fair'),      color: 'yellow'  }
