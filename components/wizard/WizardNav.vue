@@ -2,7 +2,7 @@
 defineProps<{
   canGoBack: boolean
   canGoNext: boolean
-  isLastContentStep: boolean  // true when on 'bathroom' step → button says "View Report"
+  isLastContentStep: boolean
 }>()
 
 defineEmits<{
@@ -28,7 +28,7 @@ defineEmits<{
       color="primary"
       :disabled="!canGoNext"
       trailing-icon="i-lucide-arrow-right"
-      @click="$emit('next')"
+      @click="canGoNext && $emit('next')"
     >
       {{ isLastContentStep ? $t('wizard.viewReport') : $t('wizard.next') }}
     </UButton>
