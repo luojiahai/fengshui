@@ -54,17 +54,16 @@ useSeoMeta({
       <NuxtPage />
     </UMain>
 
-    <USeparator class="py-2" />
-
-    <UFooter>
-      <template #left>
+    <!-- Footer -->
+    <div class="border-t border-default">
+      <UContainer class="max-w-xl py-3">
         <p class="text-muted text-sm">
           Copyright © {{ new Date().getFullYear() }}
           <span class="font-semibold text-primary">{{ $t("idlegram") }}</span>
           by
-          <a href="https://luojiahai.com" target="_blank" class="underline">luojiahai</a>
+          <a href="https://luojiahai.com" target="_blank" class="underline hover:text-default transition-colors">luojiahai</a>
         </p>
-      </template>
-    </UFooter>
+      </UContainer>
+    </div>
   </UApp>
 </template>
