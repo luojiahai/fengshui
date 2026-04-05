@@ -1,171 +1,206 @@
 {
   "idlegram": "idlegram",
-  "title": "Feng Shui Calculator",
-  "description": "Is the Feng Shui good?",
-  "disclaimer": "It's just for fun. Please don't take the results too seriously! Consult a professional Feng Shui master for accurate Feng Shui advice.",
-  "score": "Score",
-  "excellentFengShui": "Excellent Feng Shui (Prosperous Home)",
-  "goodFengShui": "Good Feng Shui (Steady Progress)",
-  "fairFengShui": "Fair Feng Shui (Needs Improvement)",
-  "poorFengShui": "Poor Feng Shui (Layout Adjustment Recommended)",
-  "badFengShui": "Bad Feng Shui (Major Adjustment or Remediation Needed)",
-  "externalEnvironment": "External Environment",
-  "internalLayout": "Internal Layout",
-  "fengShuiItems": {
-    "1": {
-      "title": "Four Celestial Guardians",
-      "info": "",
+  "title": "Feng Shui Inspector",
+  "description": "Walk through a property room by room and get a feng shui report with remedies.",
+  "disclaimer": "For educational and entertainment purposes. Consult a professional feng shui master for authoritative advice.",
+  "steps": {
+    "direction": "Facing Direction",
+    "external": "External Environment",
+    "entrance": "Main Entrance",
+    "livingRoom": "Living Room",
+    "kitchen": "Kitchen",
+    "bedroom": "Bedroom",
+    "bathroom": "Bathroom",
+    "report": "Report"
+  },
+  "directions": {
+    "N": "North", "NE": "Northeast", "E": "East", "SE": "Southeast",
+    "S": "South", "SW": "Southwest", "W": "West", "NW": "Northwest"
+  },
+  "wizard": {
+    "back": "Back",
+    "next": "Next",
+    "viewReport": "View Report",
+    "stepOf": "Step {current} of {total}",
+    "directionPrompt": "Which direction does the front door face?",
+    "directionHint": "Stand inside looking out through the front door. Use a compass or map app to find the direction.",
+    "addBedroom": "Add Another Bedroom",
+    "addBathroom": "Add Another Bathroom",
+    "bedroom": "Bedroom",
+    "masterBedroom": "Master Bedroom",
+    "bedroomN": "Bedroom {n}",
+    "bathroomN": "Bathroom {n}"
+  },
+  "report": {
+    "title": "Feng Shui Report",
+    "overallScore": "Overall Score",
+    "sectionBreakdown": "Section Breakdown",
+    "issuesFound": "Issues Found",
+    "noIssues": "No issues found — great feng shui!",
+    "remedy": "Remedy",
+    "shareReport": "Share Report",
+    "startOver": "Start Over",
+    "linkCopied": "Link copied to clipboard!",
+    "readOnly": "This is a shared report (read-only).",
+    "weight": "weight"
+  },
+  "ratings": {
+    "excellent": "Excellent Feng Shui",
+    "good": "Good Feng Shui",
+    "fair": "Fair Feng Shui",
+    "poor": "Poor Feng Shui",
+    "bad": "Bad Feng Shui"
+  },
+  "sectionLabels": {
+    "external": "External Environment",
+    "entrance": "Main Entrance",
+    "livingRoom": "Living Room",
+    "kitchen": "Kitchen",
+    "bedroom": "Bedroom(s)",
+    "bathroom": "Bathroom(s)"
+  },
+  "checks": {
+    "extCelestial": {
+      "question": "Which of the Four Celestial Guardians are present?",
+      "info": "Classical feng shui describes ideal surroundings as four protective formations — green dragon (left), white tiger (right), red phoenix (front), black tortoise (behind).",
       "options": {
-        "1": {
-          "label": "Green Dragon (Left)",
-          "description": "Buildings on the left side of the house are slightly taller"
-        },
-        "2": {
-          "label": "White Tiger (Right)",
-          "description": "Buildings on the right side of the house are slightly lower"
-        },
-        "3": {
-          "label": "Red Phoenix (Front)",
-          "description": "Open space in front of the house with water features (park, river)"
-        },
-        "4": {
-          "label": "Black Tortoise (Back)",
-          "description": "Mountains or tall buildings behind the house for support"
-        }
+        "greenDragon":   { "label": "Green Dragon (Left) — buildings on the left are slightly taller" },
+        "whiteTiger":    { "label": "White Tiger (Right) — buildings on the right are slightly lower" },
+        "redPhoenix":    { "label": "Red Phoenix (Front) — open space or water feature in front" },
+        "blackTortoise": { "label": "Black Tortoise (Back) — mountain or tall building behind" }
       }
     },
-    "2": {
-      "title": "Negative Formations (Xing Sha)",
-      "info": "Unreasonable natural landscapes around the house.",
+    "extSha": {
+      "question": "Are any negative sha formations present nearby?",
+      "info": "Sha qi (煞气) refers to aggressive energy caused by sharp, direct, or oppressive environmental features.",
       "options": {
-        "1": {
-          "label": "Road Rush",
-          "description": "Main door or windows directly facing a straight road, stairs, or corridor"
-        },
-        "2": {
-          "label": "Sharp Corner Sha",
-          "description": "Sharp corner or wall edge of another building pointing directly at the house"
-        },
-        "3": {
-          "label": "Reverse Bow Sha",
-          "description": "Road or river curves away from the house like an arrow being shot"
-        },
-        "4": {
-          "label": "Heaven's Blade Sha",
-          "description": "Narrow gap between two tall buildings directly facing the house"
-        },
-        "5": {
-          "label": "Piercing Heart Sha",
-          "description": "Underground passage, subway, or roadway passing beneath the building"
-        },
-        "6": {
-          "label": "Light Sha",
-          "description": "Direct exposure to glass facades or strong light for prolonged periods"
-        }
+        "roadRush":      { "label": "Road Rush (路冲) — road or corridor points directly at the front door",         "remedy": "Install a screen wall, dense shrubs, or a bagua mirror above the door to deflect the sha." },
+        "sharpCorner":   { "label": "Sharp Corner Sha (角煞) — a building's sharp corner points at the house",       "remedy": "Place tall plants or a wind chime between the corner and the house windows." },
+        "reverseBow":    { "label": "Reverse Bow Sha (反弓煞) — road or river curves away from the house",           "remedy": "Add a water feature on the concave side to attract qi back toward the property." },
+        "heavensBlade":  { "label": "Heaven's Blade Sha (天斩煞) — narrow gap between two tall buildings faces you", "remedy": "Avoid opening windows facing the gap. Use crystals or curtains to deflect the cutting energy." },
+        "piercingHeart": { "label": "Piercing Heart Sha (穿心煞) — underground passage or road runs below",          "remedy": "Place heavy grounding objects on lower floors. Keep lower levels well-lit and active." },
+        "lightSha":      { "label": "Light Sha (光煞) — glass facade or strong reflected light hits the house",      "remedy": "Apply UV-blocking window film. Use dense curtains and buffer plants to absorb reflected energy." }
       }
     },
-    "3": {
-      "title": "Surroundings",
-      "info": "",
+    "extSurroundings": {
+      "question": "What notable buildings or features are in the immediate surroundings?",
       "options": {
-        "1": {
-          "label": "Negative (Yin)",
-          "description": "Hospital, garbage dump, electrical substation, high-voltage tower, temple"
-        },
-        "2": {
-          "label": "Positive (Yang)",
-          "description": "Park, greenery, river, school, library"
-        }
+        "yin":  { "label": "Yin surroundings — hospital, mortuary, garbage station, power substation, or temple nearby", "remedy": "Place strong yang elements near windows facing the yin structure: bright lights, active water features, or lush plants." },
+        "yang": { "label": "Yang surroundings — park, school, library, or clean river nearby" }
       }
     },
-    "4": {
-      "title": "Overall",
-      "info": "",
+    "entDoorFaces": {
+      "question": "What does the front door face when opened?",
+      "info": "The front door is the mouth of qi for the home. Whatever it faces directly influences what energy enters.",
       "options": {
-        "1": {
-          "label": "Rectangular Layout",
-          "description": ""
-        },
-        "2": {
-          "label": "Ample Natural Light",
-          "description": ""
-        },
-        "3": {
-          "label": "Good Air Circulation",
-          "description": ""
-        },
-        "4": {
-          "label": "Clean and Tidy",
-          "description": ""
-        }
+        "elevator": { "label": "Elevator or staircase directly opposite",      "remedy": "Place a plant or decorative screen between the door and the elevator to slow rushing qi." },
+        "bathroom": { "label": "Bathroom door directly opposite",              "remedy": "Keep the bathroom door closed at all times. Hang a faceted crystal or small screen between the two doors." },
+        "kitchen":  { "label": "Kitchen (stove or appliances) directly ahead", "remedy": "Keep the kitchen door closed. Place a room divider or tall plant between the entrance and kitchen." },
+        "balcony":  { "label": "Balcony door or window directly across",       "remedy": "Place furniture or a room divider in the path to slow qi from rushing straight through the unit." }
       }
     },
-    "5": {
-      "title": "Main Door",
-      "info": "",
+    "entLight": {
+      "question": "How is the natural light at the entrance?",
       "options": {
-        "1": {
-          "label": "Not Facing Elevator or Stairs",
-          "description": ""
-        },
-        "2": {
-          "label": "Not Facing Bathroom, Kitchen, or Balcony Door",
-          "description": ""
-        }
+        "good": { "label": "Bright — ample natural light or well-lit entry" },
+        "poor": { "label": "Dark — minimal light, feels dim or enclosed",     "remedy": "Add a bright overhead light and a mirror to reflect light. Keep the entry area clean and uncluttered." }
       }
     },
-    "6": {
-      "title": "Living Room",
-      "info": "",
+    "entClutter": {
+      "question": "How is the entrance area kept?",
       "options": {
-        "1": {
-          "label": "Located in Front Half of House",
-          "description": ""
-        },
-        "2": {
-          "label": "Sofa Has Solid Back Support",
-          "description": ""
-        }
+        "clean":     { "label": "Clean and uncluttered — welcoming and open" },
+        "cluttered": { "label": "Cluttered — shoes, bags, or objects block the entryway", "remedy": "Install a shoe rack or storage cabinet. A clear path at the entrance allows qi to flow in freely." }
       }
     },
-    "7": {
-      "title": "Kitchen",
-      "info": "",
+    "lrPosition": {
+      "question": "Where is the living room located within the unit?",
+      "info": "In feng shui, the living room should be near the entrance so qi can gather there before reaching private rooms.",
       "options": {
-        "1": {
-          "label": "Stove and Sink Not Adjacent",
-          "description": ""
-        },
-        "2": {
-          "label": "Stove Has Solid Back Support",
-          "description": ""
-        },
-        "3": {
-          "label": "Not Adjacent to Bathroom",
-          "description": ""
-        }
+        "front": { "label": "Front half of the unit — close to the main entrance" },
+        "back":  { "label": "Back half of the unit — past the bedrooms", "remedy": "Use furniture placement and lighting to define a clear gathering space near the entrance as a secondary welcoming area." }
       }
     },
-    "8": {
-      "title": "Bedroom",
-      "info": "",
+    "lrSofa": {
+      "question": "What is behind the main sofa?",
+      "info": "A sofa with solid backing (a wall) provides stability and support — the occupants feel secure.",
       "options": {
-        "1": {
-          "label": "Bed Facing South-North",
-          "description": ""
-        },
-        "2": {
-          "label": "Bed Head Against Solid Wall",
-          "description": ""
-        },
-        "3": {
-          "label": "Bed Not Facing Door",
-          "description": ""
-        },
-        "4": {
-          "label": "Bed Not Facing Mirror",
-          "description": ""
-        }
+        "solidWall": { "label": "Solid wall — the sofa back is against a wall" },
+        "window":    { "label": "Window — the sofa back faces a window",           "remedy": "Place a sofa table or tall plant behind the sofa as a symbolic backing." },
+        "openSpace": { "label": "Open space or walkway behind the sofa",           "remedy": "Reposition the sofa against a wall. If impossible, place a tall bookshelf or screen behind it." }
+      }
+    },
+    "lrLight": {
+      "question": "How is the natural light and ventilation in the living room?",
+      "options": {
+        "good": { "label": "Good — bright with natural light and air flow" },
+        "poor": { "label": "Poor — dim, stuffy, or relies mainly on artificial light", "remedy": "Keep windows clean and open when possible. Add full-spectrum lighting and air-purifying plants." }
+      }
+    },
+    "kitStoveSink": {
+      "question": "Are the stove and sink directly adjacent or facing each other?",
+      "info": "The stove represents fire and the sink represents water. In feng shui, fire and water in direct conflict create disharmony.",
+      "options": {
+        "separate": { "label": "Separated — stove and sink are not side-by-side or directly opposite" },
+        "adjacent": { "label": "Adjacent — stove and sink are right next to each other or face each other", "remedy": "Place a wood element between them: a small cutting board, a green plant, or a wood-toned panel to mediate between fire and water." }
+      }
+    },
+    "kitStoveBack": {
+      "question": "What is behind the stove?",
+      "options": {
+        "wall":   { "label": "Solid wall — the stove has a solid wall backing" },
+        "window": { "label": "Window or open space behind the stove", "remedy": "Install a solid backsplash (tile or stone). Hang a small mirror behind the stove to symbolically double wealth." }
+      }
+    },
+    "kitBathroom": {
+      "question": "Is the kitchen adjacent to or sharing a wall with a bathroom?",
+      "options": {
+        "separate": { "label": "Not adjacent — kitchen and bathroom are separated by at least one room or hallway" },
+        "adjacent": { "label": "Adjacent — kitchen and bathroom share a wall or are directly next to each other", "remedy": "Keep both doors closed. Place a bowl of sea salt in the bathroom corners to absorb negative energy." }
+      }
+    },
+    "bedDirection": {
+      "question": "Which direction does the bed run (head to foot)?",
+      "info": "North-South alignment follows the Earth's magnetic field, which many traditions associate with better rest.",
+      "options": {
+        "northSouth": { "label": "North-South — head points North or South" },
+        "eastWest":   { "label": "East-West — head points East or West", "remedy": "Reposition the bed to a North-South orientation if the room layout allows." }
+      }
+    },
+    "bedHeadwall": {
+      "question": "What is behind the headboard?",
+      "options": {
+        "solidWall": { "label": "Solid wall — headboard is against a solid wall" },
+        "window":    { "label": "Window or door — headboard is against a window or near a door", "remedy": "Move the bed so the headboard is against a solid wall. If not possible, install heavy blackout curtains behind the headboard." }
+      }
+    },
+    "bedDoor": {
+      "question": "Is the bed directly in line with the bedroom door?",
+      "options": {
+        "notFacing": { "label": "Not in line — bed is offset from the door" },
+        "facing":    { "label": "In line — lying in bed you look directly at the door", "remedy": "Reposition the bed so it is no longer in direct line with the door. If not possible, place a footboard or a low chest at the bed foot." }
+      }
+    },
+    "bedMirror": {
+      "question": "Is there a mirror facing the bed?",
+      "options": {
+        "notFacing": { "label": "No mirror facing the bed" },
+        "facing":    { "label": "Mirror faces the bed — you can see yourself lying down", "remedy": "Cover the mirror with a curtain at night, or relocate it to a wall not visible from bed." }
+      }
+    },
+    "bathCenter": {
+      "question": "Where is the bathroom located in the floor plan?",
+      "info": "A bathroom in the center of the home is considered inauspicious as it drains the qi of the entire home.",
+      "options": {
+        "notCenter": { "label": "On the perimeter — bathroom is along an outer wall" },
+        "center":    { "label": "Center of the unit — bathroom is in the middle of the floor plan", "remedy": "Keep the door closed always. Use bright lighting and strong ventilation. Place a faceted crystal ball in the bathroom to lift energy." }
+      }
+    },
+    "bathDoor": {
+      "question": "Does the bathroom door face the main entrance?",
+      "options": {
+        "notFacing": { "label": "No — bathroom door is not visible from the front door" },
+        "facing":    { "label": "Yes — bathroom door faces or is visible from the front door", "remedy": "Keep the bathroom door closed. Hang a wind chime or crystal between the two doors to catch and redirect energy." }
       }
     }
   }
