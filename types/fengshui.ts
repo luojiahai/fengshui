@@ -11,6 +11,9 @@ export const WIZARD_STEPS: WizardStep[] = [
 
 // --- Check types ---
 
+// NOTE: Structurally identical to TranslatedCheckOption. TypeScript cannot
+// enforce the i18n-key vs. translated-string distinction at compile time.
+// Use translateChecks() to convert Check → TranslatedCheck.
 export type CheckOption = {
   id: string
   label: string       // i18n key
@@ -27,6 +30,8 @@ export type Check = {
 }
 
 // Translated versions (i18n keys replaced with actual strings)
+// NOTE: Structurally identical to CheckOption. Produced by translateChecks()
+// which resolves all i18n keys to actual strings.
 export type TranslatedCheckOption = {
   id: string
   label: string
@@ -52,7 +57,7 @@ export type DirectionModifier = {
 
 export type RoomResult = {
   roomId: string    // e.g. 'bedroom-1', 'bedroom-2'
-  label: string     // e.g. 'wizard.masterBedroom' (i18n key)
+  label: string     // i18n key (e.g. 'wizard.masterBedroom'). Stored as i18n key in WizardState (persisted to URL) to allow cross-locale sharing in shared reports
   answers: Record<string, string[]>  // checkId → selected option IDs
 }
 
@@ -69,17 +74,22 @@ export type WizardState = {
 
 export type SectionScore = {
   stepKey: StepKey
-  label: string    // translated label e.g. 'External Environment'
+  label: string    // translated string (computed at render time by scoring composable). e.g. 'External Environment'
   score: number    // 0-100
   weight: number   // 0-1 (proportion of overall score)
 }
 
 export type Issue = {
   stepKey: StepKey
-  roomLabel?: string   // set for bedroom/bathroom room-specific issues
-  checkQuestion: string
-  optionLabel: string
-  remedy: string
+  roomLabel?: string   // translated string (set for bedroom/bathroom room-specific issues, computed at render time)
+  checkQuestion: string  // translated string (computed at render time by scoring composable)
+  optionLabel: string  // translated string (computed at render time by scoring composable)
+  remedy: string  // translated string (computed at render time by scoring composable)
+}
+
+export type Rating = {
+  label: string   // translated string (computed at render time by scoring composable)
+  color: 'emerald' | 'yellow' | 'orange' | 'red'
 }
 
 export type Report = {
@@ -87,9 +97,4 @@ export type Report = {
   rating: Rating
   sectionScores: SectionScore[]
   issues: Issue[]
-}
-
-export type Rating = {
-  label: string   // translated
-  color: 'emerald' | 'yellow' | 'orange' | 'red'
 }
