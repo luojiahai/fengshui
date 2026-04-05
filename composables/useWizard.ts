@@ -1,15 +1,15 @@
 // composables/useWizard.ts
 import type { Direction, WizardState, WizardStep, RoomResult } from '~/types/fengshui'
+import { WIZARD_STEPS } from '~/types/fengshui'
 
-export const STEPS: WizardStep[] = [
-  'direction', 'external', 'entrance', 'livingRoom', 'kitchen', 'bedroom', 'bathroom', 'report'
-]
+export const STEPS = WIZARD_STEPS
 
 // --- Pure functions (exported for testing) ---
 
 export function canAdvance(step: WizardStep, state: WizardState): boolean {
   if (step === 'report') return false
   if (step === 'direction') return state.facingDirection !== null
+  // Content steps (external, entrance, etc.) are intentionally optional — user may skip any room
   return true
 }
 
@@ -70,18 +70,24 @@ export function useWizard() {
   }
 
   function setRoomAnswer(type: 'bedroom' | 'bathroom', roomId: string, checkId: string, optionIds: string[]) {
-    const room = state.value.rooms[type].find(r => r.roomId === roomId)
-    if (room) {
-      room.answers = { ...room.answers, [checkId]: optionIds }
-    }
+    state.value.rooms[type] = state.value.rooms[type].map(r =>
+      r.roomId === roomId
+        ? { ...r, answers: { ...r.answers, [checkId]: optionIds } }
+        : r
+    )
   }
 
   function addRoom(type: 'bedroom' | 'bathroom') {
     const rooms = state.value.rooms[type]
-    state.value.rooms[type] = [...rooms, newRoom(type, rooms.length + 1)]
+    const maxN = rooms.reduce((m, r) => {
+      const n = parseInt(r.roomId.split('-')[1] ?? '0', 10)
+      return Math.max(m, isNaN(n) ? 0 : n)
+    }, 0)
+    state.value.rooms[type] = [...rooms, newRoom(type, maxN + 1)]
   }
 
   function removeRoom(type: 'bedroom' | 'bathroom', roomId: string) {
+    if (state.value.rooms[type].length <= 1) return
     state.value.rooms[type] = state.value.rooms[type].filter(r => r.roomId !== roomId)
   }
 

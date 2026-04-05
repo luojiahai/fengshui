@@ -1,4 +1,7 @@
 // tests/wizard.test.ts
+// Tests cover only pure exported functions (canAdvance, nextStep, prevStep, STEPS).
+// Stateful composable functions (goNext, addRoom, setRoomAnswer, etc.) require
+// @nuxt/test-utils for proper useState/computed support and are integration-tested at runtime.
 import { describe, it, expect } from 'vitest'
 import { canAdvance, nextStep, prevStep, STEPS } from '../composables/useWizard'
 import type { WizardState, WizardStep } from '../types/fengshui'
