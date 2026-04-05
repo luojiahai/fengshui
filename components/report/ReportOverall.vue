@@ -9,6 +9,13 @@ const colorClass = (color: string) => ({
   'text-orange-400':  color === 'orange',
   'text-red-400':     color === 'red',
 })
+
+const bgColorClass = (color: string) => ({
+  'bg-emerald-400': color === 'emerald',
+  'bg-yellow-400':  color === 'yellow',
+  'bg-orange-400':  color === 'orange',
+  'bg-red-400':     color === 'red',
+})
 </script>
 
 <template>
@@ -25,12 +32,7 @@ const colorClass = (color: string) => ({
     <div class="w-full bg-elevated rounded-full h-2">
       <div
         class="h-2 rounded-full transition-all duration-500"
-        :class="{
-          'bg-emerald-400': report.rating.color === 'emerald',
-          'bg-yellow-400':  report.rating.color === 'yellow',
-          'bg-orange-400':  report.rating.color === 'orange',
-          'bg-red-400':     report.rating.color === 'red',
-        }"
+        :class="bgColorClass(report.rating.color)"
         :style="{ width: `${report.overallScore}%` }"
       />
     </div>

@@ -8,7 +8,7 @@ defineProps<{ report: Report }>()
   <UCard variant="subtle" class="mb-4">
     <h3 class="font-semibold mb-3">
       {{ $t('report.issuesFound') }}
-      <UBadge v-if="report.issues.length" color="orange" variant="subtle" class="ml-2">
+      <UBadge v-if="report.issues.length > 0" color="orange" variant="subtle" class="ml-2">
         {{ report.issues.length }}
       </UBadge>
     </h3>
@@ -19,8 +19,8 @@ defineProps<{ report: Report }>()
 
     <div v-else class="space-y-4">
       <div
-        v-for="(issue, idx) in report.issues"
-        :key="idx"
+        v-for="issue in report.issues"
+        :key="`${issue.checkQuestion}-${issue.optionLabel}`"
         class="border-l-2 border-orange-400 pl-3"
       >
         <p class="text-sm font-medium">
