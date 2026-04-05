@@ -17,6 +17,9 @@ const SECTION_WEIGHTS: Record<StepKey, number> = {
   bathroom:   0.05,
 }
 
+const ROOM_KEYS = new Set<StepKey>(['bedroom', 'bathroom'])
+const NON_ROOM_KEYS = (Object.keys(SECTION_WEIGHTS) as StepKey[]).filter(k => !ROOM_KEYS.has(k))
+
 // --- Pure functions (exported for testing) ---
 
 export function calculateSectionScore(
@@ -27,6 +30,8 @@ export function calculateSectionScore(
 ): number {
   const checks = stepChecks[stepKey]
   const { min, max } = sectionMinMax[stepKey]
+
+  if (max === min) return 50  // degenerate section: no scoring range, treat as neutral
 
   let sectionRaw = 0
   for (const check of checks) {
@@ -111,11 +116,10 @@ export function useFengShui() {
 
   const sectionScores = computed<Record<StepKey, number>>(() => {
     const direction = state.value.facingDirection ?? 'N'
-    const stepKeys = Object.keys(sectionMinMax) as StepKey[]
     return Object.fromEntries(
-      stepKeys.map(key => {
-        if (key === 'bedroom' || key === 'bathroom') {
-          const rooms = state.value.rooms[key]
+      (Object.keys(SECTION_WEIGHTS) as StepKey[]).map(key => {
+        if (ROOM_KEYS.has(key)) {
+          const rooms = state.value.rooms[key as 'bedroom' | 'bathroom']
           if (rooms.length === 0) {
             return [key, calculateSectionScore(key, {}, defaultModifiers, direction)]
           }
@@ -134,7 +138,7 @@ export function useFengShui() {
   const rating = computed(() => getRating(overallScore.value, t))
 
   const allIssues = computed<Issue[]>(() => {
-    const stepKeys = ['external', 'entrance', 'livingRoom', 'kitchen'] as StepKey[]
+    const stepKeys = NON_ROOM_KEYS
     const issues: Issue[] = []
     for (const key of stepKeys) {
       issues.push(...getIssues(key, state.value.answers, t))
