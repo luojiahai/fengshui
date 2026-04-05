@@ -41,6 +41,7 @@
     "shareReport": "Share Report",
     "startOver": "Start Over",
     "linkCopied": "Link copied to clipboard!",
+    "shareFailed": "Failed to copy link",
     "readOnly": "This is a shared report (read-only).",
     "weight": "weight"
   },

@@ -5,8 +5,8 @@ import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 const { t, locale, setLocale } = useI18n()
 
 useSeoMeta({
-  title: t("title"),
-  description: t("description"),
+  title: () => t("title"),
+  description: () => t("description"),
 })
 </script>
 

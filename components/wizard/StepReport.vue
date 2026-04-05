@@ -9,7 +9,7 @@ const toast = useToast()
 async function handleShare() {
   const success = await shareReport(state.value)
   toast.add({
-    title: success ? t('report.linkCopied') : 'Failed to copy link',
+    title: success ? t('report.linkCopied') : t('report.shareFailed'),
     color: success ? 'success' : 'error',
     duration: 2000,
   })

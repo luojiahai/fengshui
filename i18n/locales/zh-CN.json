@@ -41,6 +41,7 @@
     "shareReport": "分享报告",
     "startOver": "重新测算",
     "linkCopied": "链接已复制！",
+    "shareFailed": "分享失败，请重试",
     "readOnly": "这是一份共享报告（只读）。",
     "weight": "权重"
   },
