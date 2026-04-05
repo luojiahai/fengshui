@@ -95,3 +95,29 @@ describe('getIssues', () => {
     expect(issues).toHaveLength(0)
   })
 })
+
+describe('translateChecks', () => {
+  it('translates question and option labels using t function', () => {
+    const t = (key: string) => `[${key}]`
+    const checks = stepChecks['entrance']
+    const translated = translateChecks(checks, t)
+    expect(translated[0].question).toBe('[checks.entDoorFaces.question]')
+    expect(translated[0].options[0].label).toBe('[checks.entDoorFaces.options.elevator.label]')
+  })
+
+  it('returns info as undefined when check has no info field', () => {
+    const t = (key: string) => key
+    // entLight has no info field in the check data
+    const checks = stepChecks['entrance']
+    const entLightTranslated = translateChecks(checks, t).find(c => c.id === 'ent-light')
+    expect(entLightTranslated?.info).toBeUndefined()
+  })
+
+  it('returns translated info when check has info field', () => {
+    const t = (key: string) => `[${key}]`
+    // entDoorFaces has an info field
+    const checks = stepChecks['entrance']
+    const entDoorFacesTranslated = translateChecks(checks, t).find(c => c.id === 'ent-door-faces')
+    expect(entDoorFacesTranslated?.info).toBe('[checks.entDoorFaces.info]')
+  })
+})
